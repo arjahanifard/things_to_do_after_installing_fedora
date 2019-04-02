@@ -11,11 +11,13 @@ notify_func (){
 exit_program="y"
 while [ "$exit_program" == "y" ];do
   echo -e "adade marhale mored nazare khodetan ra entekhab bekonid:\n1)tarrif user root\t2)beroz resani(update)\t3)afzodane makhazen rpmfusion(add rpmfusion)\n
-  4)afzodane codec soti va tesfiri"
-  read step
+4)afzodane codec soti va tasfiri\n"
+  read -p "adade morede nazare khod ra vared konid: " step
   case "$step" in
     "1")
-      echo "dar ayandeh ezafe mishavad";;
+      notify-send -t 3000 "روت کردن حساب کاربری"
+      notify-send -t 3000 "رمز حساب کاربری خود را وارد کنید"
+      su -c "usermod -aG  wheel $USERNAME";;
     "2")
       notify-send -t 3000 "رمز حساب کاربری خود را وارد کنید"
       sudo dnf -y update
